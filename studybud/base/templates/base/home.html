@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'main.html' %}
+
+{% block content    %}
+
+<style>
+    .home-container{
+    display:grid;
+    grid-template-columns:1fr 3fr 1fr
+    }
+
+
+</style>
+<div class="home-container">
+
+
+
+          {% include 'base/topics_component.html'%}
+
+
+    <div>
+        <h5>{{room_count}} rooms available</h5>
+         <a href="{% url 'create-room'%}"> CREATE ROOM </a>
+    <hr>
+
+   {% include 'base/feed_component.html' %}
+    </div>
+
+
+<div >
+  {% include 'base/activity_component.html' %}
+
+
+</div>
+{% endblock content %}
+
+</div>
+</body>
+
+</html>

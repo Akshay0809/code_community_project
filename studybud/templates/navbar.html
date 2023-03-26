@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="{% static 'styles/main.css' %}" >
+</head>
+<body >
+
+<a href="/"> LOGO </a>
+
+<hr>
+
+<form METHOD="GET"  action=" {% url 'home' %} ">
+<input type="text" name="q" placeholder="Search Rooms..." id="search">
+    {% if request.user.is_authenticated %}
+    <P id="name">HELLO {{request.user}}...</P>
+
+    <a href="{% url 'logout'  %}" class="log">LOGOUT</a>
+    {% else %}
+
+    <a href="{% url 'login' %}" class="log">LOGIN</a>
+    {% endif %}
+<hr>
+
+</form>
+</body>
+</html>
